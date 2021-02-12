@@ -1,16 +1,31 @@
-<h1>My cocktails :</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>My cocktails :</h1>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li>
-      <%= check_box("undone", "done")%>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-      <%= link_to "🗑",
-        cocktail_path(cocktail),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @cocktails.each do |cocktail| %>
+      <li>
+        <%= check_box("undone", "done")%>
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        <%= link_to "🗑",
+          cocktail_path(cocktail),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Create a new cocktail", new_cocktail_path(@cocktail) %>
+  <%= link_to "Create a new cocktail", new_cocktail_path(@cocktail) %>
+
+</body>
+</html>
+
+
+
+
