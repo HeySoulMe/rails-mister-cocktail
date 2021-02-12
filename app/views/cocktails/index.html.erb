@@ -6,22 +6,94 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>My cocktails :</h1>
-
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <li>
-        <%= check_box("undone", "done")%>
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-        <%= link_to "🗑",
-          cocktail_path(cocktail),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-      </li>
+  <!-- Navbar -->
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <%= link_to "https://cocktail.com/", class: "navbar-brand" do %>
+      <%= image_tag("cocktail_logo.jpg") %>
     <% end %>
-  </ul>
 
-  <%= link_to "Create a new cocktail", new_cocktail_path(@cocktail) %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Tabs -->
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <a href="#" class="tab-underlined active">Your cocktails</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined">Top 10 Cocktails</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined">Categories</a>
+      </li>
+    </ul>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+ <!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('barman_onstage.jpg') %>);">
+  <div class="container">
+    <h1>Mister Cocktail brings <strong>unique cocktails</strong> to <strong>creative wagoners</strong>!</h1>
+    <p>Choose and share your cocktail on this page</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+<!-- Card -->
+ <h1>My cocktails :</h1>
+   <div class="card-product">
+     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+     <div class="card-product-infos">
+       <h2>Product name</h2>
+       <p>Product description with <strong>relevant info</strong> only.</p>
+     </div>
+   </div>
+    <ul>
+      <% @cocktails.each do |cocktail| %>
+        <li>
+          <%= check_box("undone", "done")%>
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+          <%= link_to "🗑",
+            cocktail_path(cocktail),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Create a new cocktail", new_cocktail_path(@cocktail) %>
+
+<!-- Footer -->
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
+    </div>
 
 </body>
 </html>
